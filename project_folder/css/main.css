@@ -1,0 +1,153 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Colibri', sans-serif;
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    transition: 0.5s;
+    height: 100vh;
+    background: #241238;
+    color: #fff;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0;
+}
+
+body.light {
+    background: #C76483;
+}
+
+.logo__box {
+    background: rgb(43, 16, 49);
+    background: linear-gradient(180deg, rgba(43, 16, 49, 1) 0%, rgba(198, 106, 147, 1) 100%);
+    border-top-left-radius: 40px 40px;
+    border-bottom-right-radius: 40px 40px;
+    transition: 0.3s;
+    height: 65px;
+    width: 65px;
+}
+
+.logo__box>img {
+    width: 100%;
+}
+
+header {
+    padding-top: 5px;
+    margin-bottom: 45px;
+}
+
+.text__box {
+    color: #fff;
+}
+
+.site__theme_wrapper {
+    margin-left: auto;
+}
+
+.site__theme_wrapper label {
+    text-align: center;
+}
+
+.error {
+    color: #ff0000;
+}
+
+.okey {
+    color: #fff;
+    font-style: italic;
+}
+
+.black {
+    background: #000;
+    color: #fff;
+}
+
+.full_name {
+    width: 200px;
+    overflow: hidden;
+    font-size: 18px;
+}
+
+.short_name {
+    width: 70px;
+    font-size: 15px;
+}
+
+.header_box {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #C56992;
+}
+
+/*.item>*{
+	margin-right: 15px;
+}*/
+.icon {
+    width: 35px;
+}
+
+.icon>img {
+    width: 100%;
+}
+
+.coin_logo {
+    width: 35px;
+    margin-right: 10px;
+}
+
+.coin_logo>img {
+    width: 28px;
+}
+
+.coin_box_row {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    font-size: 22px;
+    font-weight: bold;
+    padding: 4px 0 7px 0;
+    border-bottom: 1px solid #C56992;
+}
+
+.row_info {
+    border: 1px solid transparent;
+    box-sizing: border-box;
+    font-size: 16px;
+
+    /*background: #006262;*/
+}
+
+.rank {
+    width: 22px;
+    margin-right: 10px;
+    text-align: right;
+}
+
+.content_box .rank {
+
+    font-size: 14px;
+}
+
+.price {
+    font-size: 18px;
+    width: 120px;
+    text-align: right;
+    padding-bottom: 8px;
+    /*background: #1EC453;*/
+    padding: 4px 8px 4px 8px;
+    box-sizing: border-box;
+}

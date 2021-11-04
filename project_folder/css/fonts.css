@@ -1,0 +1,55 @@
+@font-face {
+    font-family: 'Algerian';
+    src: url('../fonts/Algerian.eot');
+    src: url('../fonts/Algerian.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Algerian.woff2') format('woff2'),
+        url('../fonts/Algerian.woff') format('woff'),
+        url('../fonts/Algerian.ttf') format('truetype'),
+        url('../fonts/Algerian.svg#Algerian') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.algerian{
+    font-family: 'Algerian';
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Livvic';
+    src: url('../fonts/Livvic-Regular.eot');
+    src: url('../fonts/Livvic-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Livvic-Regular.woff2') format('woff2'),
+        url('../fonts/Livvic-Regular.woff') format('woff'),
+        url('../fonts/Livvic-Regular.ttf') format('truetype'),
+        url('../fonts/Livvic-Regular.svg#Livvic-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+.livvic{
+    font-family: 'Livvic';
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'GloryTSI';
+    src: url('../fonts/GloryTSI-Regular.eot');
+    src: url('../fonts/GloryTSI-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/GloryTSI-Regular.woff2') format('woff2'),
+        url('../fonts/GloryTSI-Regular.woff') format('woff'),
+        url('../fonts/GloryTSI-Regular.ttf') format('truetype'),
+        url('../fonts/GloryTSI-Regular.svg#GloryTSI-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+.glory {
+    font-family: 'GloryTSI';
+    font-weight: normal;
+    font-style: normal;
+}
