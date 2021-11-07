@@ -15,6 +15,7 @@
 
 		<link rel="stylesheet" href="./css/iconsfont.css">
 		<link rel="stylesheet" href="./css/fonts.css">
+		<link rel="stylesheet" href="./css/header.css">
 		<link rel="stylesheet" href="./css/main.css">
 
 		<style>
@@ -31,7 +32,10 @@
 					<div id="data_time" class="fetch_time opacity_0">Оновлено </div>
 				</div>
 				<div class="col-md-2 site__theme_wrapper opacity_0">
-					
+					<button class="button__login">
+						<i class="fas fa-user"></i>
+						<i class="far fa-user"></i>
+					</button>
 					<label for="site_theme" class="okey">
 						<i class="fas fa-moon"></i>
 						
@@ -39,26 +43,25 @@
 					<input id="site_theme" hidden="true" type="checkbox">
 				</div>
 
-
 			</div>
 
 			<div class="row">
 				<div class="col-12">
 					<nav class="navbar navbar-icon glory">
 						
-						<a id="logo_text_wrapper" class="navbar-brand text-white me-auto hello__text_wrapper active" href="./index.html">
+						<a id="logo_text_wrapper" class="navbar-brand me-auto hello__text_wrapper active" href="./index.html">
 							<div class="logo__box translated"></div>
 							<h1 class="hello__text" id="hello__text"></h1>
 						</a>
-						<a class="navbar-brand nav-icon text-white ms-auto d-none" href="./index.html">
+						<a class="navbar-brand nav-icon ms-auto d-none" href="./index.html">
 							<i class="fas fa-robot"></i>
 							<h4>Signal Bot</h4>
 						</a>
-						<a class="navbar-brand nav-icon text-white d-none" href="./index.html">
+						<a class="navbar-brand nav-icon d-none" href="./index.html">
 							<i class="fas fa-chart-pie"></i>
 							<h4>Portfolio</h4>
 						</a>
-						<a class="navbar-brand nav-icon text-white mx-sm-0 d-none" href="./index.html">
+						<a class="navbar-brand nav-icon mx-sm-0 d-none" href="./index.html">
 							<i class="fas fa-dollar-sign"></i>
 							<h4>Capitalization</h4>
 						</a>
@@ -205,110 +208,10 @@
 		
 	</footer>
 
-	
-	
-	
+	<script src="./js/loading.js"></script>
+
 
 	<script>
-		function startAfterTime(el,sec, setClass){
-			let isArray = Array.from(el);
-			console.log(el);
-			if(isArray.length < 1){
-				setTimeout(()=>{
-					el.classList.remove(setClass);
-				},sec);
-			}
-			else{
-			    el.forEach(item => {
-			    	// console.log(item);
-			        setTimeout(()=>{
-			        	item.classList.remove(setClass);
-			        },sec);
-			    });
-
-			}
-			
-		};
-
-		function addAfterTime(el,sec, setClass){
-			let isArray = Array.from(el);
-			console.log(el);
-			if(isArray.length < 1){
-				setTimeout(()=>{
-					el.classList.add(setClass);
-				},sec);
-			}
-			else{
-			    el.forEach(item => {
-			    	// console.log(item);
-			        setTimeout(()=>{
-			        	item.classList.remove(setClass);
-			        },sec);
-			    });
-
-			}
-		};
-
-		const animation = "CoinGraph";
-		let i = -1;
-
-
-		function animationContent(){
-			startAfterTime(document.querySelector('.bg__wrapper'), 100, 'bg_active');
-			
-			startAfterTime(document.querySelector('.hello__text_wrapper'), 150, 'active');
-
-			setTimeout(()=>{
-				
-				let none = document.querySelectorAll('.d-none');
-				startAfterTime(none, 700, 'd-none');
-
-				let opacity_0 = document.querySelectorAll('.opacity_0');
-				startAfterTime(opacity_0, 800, 'opacity_0');
-
-			},300);
-		}
-
-		for (let i = 0; i<animation.length; i++) {
-		    setTimeout(function timer(){
-
-		    	if(i < (animation.length - 1)){
-		    		//console.log(animation[i]);
-		    		document.getElementById('hello__text').innerHTML += animation[i]
-		    	}
-		        else{
-		        	document.getElementById('hello__text').innerHTML += animation[i]
-		        	//console.log('animation[i]');
-
-		        	animationContent();
-
-		        }
-		        
-		    }, i*200 );
-		}
-
-
-		function siteTheme() {
-		  // Get the checkbox
-		  const checkBox = document.getElementById("site_theme");
-		  // Get the output text
-		  const text = document.getElementById("black");
-
-		  // If the checkbox is checked, display the output text
-		  if (checkBox.checked == true){
-		    document.querySelector('body').classList.add('light');
-		    document.querySelector('.fa-moon').className = 'far fa-moon';
-		    
-		  } else {
-		  	document.querySelector('body').classList.remove('light');
-		  	document.querySelector('.fa-moon').className = 'fas fa-moon';
-		  }
-		}
-
-
-		document.addEventListener('change', siteTheme);
-
-
 		window.onload = () => {
 
 			let array = [0.646046];
@@ -410,7 +313,7 @@
 			function printPrice(coin, unpreparedPrice){
 				let time = getCurrentTime(),
 					date = getCurrentDate();
-				document.querySelector('#data_time').innerHTML = `Оновлено <span style="color: #B25F87">${date}</span> о <span style="color: #B25F87">${time}</span>`;
+				document.querySelector('#data_time').innerHTML = `Оновлено <span class="time__watch">${date}</span> о <span class="time__watch">${time}</span>`;
 				//console.log(time);
 
 				let price = roundPrice(unpreparedPrice);

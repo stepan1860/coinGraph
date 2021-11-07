@@ -18,44 +18,63 @@
     <meta name="description" content="" />
     <meta name="keywords" content="CoinGraph, signal bot, portfolio tracker, capitalization cryptocurrencies" />
 
+    <link rel="stylesheet" href="./css/iconsfont.css">
     <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/header.css">
     <link rel="stylesheet" href="./css/main.css">
-    <style>
-
-    	
-
-    </style>
 
 </head>
 <body>
-	<div class="bg__wrapper active"></div>
+	<div class="bg__wrapper bg_active"></div>
 	<header>
-		
-		<div class="wrapper">
-			<div class="container">
-				<div class="row">
-					<div class="col-4">
-						<!-- <div id="data_time" class="fetch_time">Оновлено </div> -->
-					</div>
+		<div class="container-fluid ">
+
+			<div class="row">
+				<div class="col-md-4">
+					<div id="data_time" class="fetch_time opacity_0">Оновлено </div>
 				</div>
-				<div class="row align-items-center">
-					<div class="col-1">
-						<!-- <div class="logo__box"></div> -->
-					</div>
-					<div class="col-5">
-						<div class="hello__text active" id="hello__text"></div>
-					</div>
-					
-					<div class="col-1 site__theme_wrapper">
+				<div class="col-md-2 site__theme_wrapper opacity_0">
+					<button class="button__login">
+						<i class="fas fa-user"></i>
+						<i class="far fa-user"></i>
+					</button>
+					<label for="site_theme" class="okey">
+						<i class="fas fa-moon"></i>
 						
-						<label class="okey">Light site theme
-							<input id="site_theme" type="checkbox">
-						</label>
-					</div>
+					</label>
+					<input id="site_theme" hidden="true" type="checkbox">
 				</div>
+
 			</div>
-		</div>	
+
+			<div class="row">
+				<div class="col-12">
+					<nav class="navbar navbar-icon glory">
+						
+						<a id="logo_text_wrapper" class="navbar-brand me-auto hello__text_wrapper active" href="./index.html">
+							<div class="logo__box translated"></div>
+							<h1 class="hello__text" id="hello__text"></h1>
+						</a>
+						<a class="navbar-brand nav-icon ms-auto d-none" href="./index.html">
+							<i class="fas fa-robot"></i>
+							<h4>Signal Bot</h4>
+						</a>
+						<a class="navbar-brand nav-icon d-none" href="./index.html">
+							<i class="fas fa-chart-pie"></i>
+							<h4>Portfolio</h4>
+						</a>
+						<a class="navbar-brand nav-icon mx-sm-0 d-none" href="./index.html">
+							<i class="fas fa-dollar-sign"></i>
+							<h4>Capitalization</h4>
+						</a>
+					</nav>
+				</div>
+				
+			</div>
+			
+		</div>
 	</header>
+
 	<section>
 		<div class="wrapper">
 			<div class="container">
@@ -84,14 +103,10 @@
 	</section>
 
 
-	
-
-	<!-- <div class="wrap"><div class="inner">Some Dummy Text <br>Some Dummy Text <br>Some Dummy Text <br>Some Dummy Text <br></div></div> -->
-
-	<script>
+	<footer>
 		
-		
+	</footer>
 
-	</script>
+	<script src="js/loading.js"></script>
 </body>
 </html>
