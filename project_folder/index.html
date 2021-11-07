@@ -3,371 +3,95 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>Coin Market Cap API</title>
-		<!-- CSS only -->
+	<title>CoinGraph</title>
 
-		<!-- <script data-main="./js/app"  src="./js/require.js"></script> -->
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+	<!--OG Tags-->
+    <meta property="og:title" content='CoinGraph'>
+    <meta property="og:url" content="" />
+    <meta property="og:description" content=''>
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="" >
+    <meta property="og:site_name" content="">
+    <!-- helper tags -->
+    <title>CoinGraph</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="CoinGraph, signal bot, portfolio tracker, capitalization cryptocurrencies" />
 
-		<link rel="shortcut icon" href="./img/favicon.png" type="image/png">
+    <link rel="stylesheet" href="./css/fonts.css">
+    <link rel="stylesheet" href="./css/main.css">
+    <style>
 
-		<link rel="stylesheet" href="./css/fonts.css">
-		<link rel="stylesheet" href="./css/main.css">
+    	
+
+    </style>
 
 </head>
 <body>
-		<header>
-			<div class="wrapper">
-				<div class="container">
-					<div class="row">
-						<div class="col-4">
-							<div id="data_time" class="fetch_time">Оновлено </div>
-						</div>
+	<div class="bg__wrapper active"></div>
+	<header>
+		
+		<div class="wrapper">
+			<div class="container">
+				<div class="row">
+					<div class="col-4">
+						<!-- <div id="data_time" class="fetch_time">Оновлено </div> -->
 					</div>
-					<div class="row align-items-center">
-						<div class="col-1">
-							<div class="logo__box"></div>
-						</div>
-						<div class="col-5">
-							<div class="text__box algerian">
-								<h1>Graph Ua</h1>
-							</div>
-						</div>
+				</div>
+				<div class="row align-items-center">
+					<div class="col-1">
+						<!-- <div class="logo__box"></div> -->
+					</div>
+					<div class="col-5">
+						<div class="hello__text active" id="hello__text"></div>
+					</div>
+					
+					<div class="col-1 site__theme_wrapper">
 						
-						<div class="col-1 site__theme_wrapper">
-							
-							<label class="okey">Light site theme
-								<input id="site_theme" type="checkbox">
-							</label>
-						</div>
+						<label class="okey">Light site theme
+							<input id="site_theme" type="checkbox">
+						</label>
 					</div>
 				</div>
-			</div>	
-		</header>
-		<section>
-			<div class="wrapper">
-				<div class="container">
-					<div class="row">
-						<div class="col-10">
-							<!-- <h2>We can see 10 crypto below</h2> -->
-							<div class="header_box" id="header_box">
-								<div class="rank">№</div>
-								<div class="coin_logo">Icon</div>
-								<!-- <h2 class="full_name">Full Name</h2> -->
-								<div class="short_name">Symbol</div>
-								<div class="price">Price ($)</div>
-								<div class="capitalization">Capitalization ($)</div>
-							</div>
-							<div class="content_box">
-								
-								<div class="coin_box_row" id="btc_box">
-									<div class="rank">1</div>
-									<div class="coin_logo">
-										<img src="./img/coins/btc.png" alt="coin logo" loading="lazy">
-									</div>
-									<div class="short_name">BTC</div>
-									<div class="price">0</div>
-									<div class="capitalization"></div>
-								</div>
-								
-								<div class="coin_box_row" id="eth_box">
-									<div class="rank">2</div>
-									<div class="coin_logo">
-										<img src="./img/coins/eth.png" alt="coin logo" loading="lazy">
-									</div>
-									<div class="short_name">ETH</div>
-									<div class="price">0</div>
-									<div class="capitalization"></div>
-								</div>
-
-								<div class="coin_box_row" id="bnb_box">
-									<div class="rank">3</div>
-									<div class="coin_logo">
-										<img src="./img/coins/bnb.png" alt="coin logo" loading="lazy">
-									</div>
-									<div class="short_name">BNB</div>
-									<div class="price">0</div>
-									<div class="capitalization"></div>
-								</div>
-
-								<div class="coin_box_row" id="usdt_box">
-									<div class="rank">4</div>
-									<div class="coin_logo">
-										<img src="./img/coins/usdt.png" alt="coin logo" loading="lazy">
-									</div>
-									<div class="short_name">USDT</div>
-									<div class="price">0</div>
-									<div class="capitalization"></div>
-								</div>
-
-								<div class="coin_box_row" id="ada_box">
-									<div class="rank">5</div>
-									<div class="coin_logo">
-										<img src="./img/coins/ada.png" alt="coin logo" loading="lazy">
-									</div>
-									<div class="short_name">ADA</div>
-									<div class="price">0</div>
-									<div class="capitalization"></div>
-								</div>
-
-								<div class="coin_box_row" id="sol_box">
-									<div class="rank">6</div>
-									<div class="coin_logo">
-										<img src="./img/coins/sol.png" alt="coin logo" loading="lazy">
-									</div>
-									<div class="short_name">SOL</div>
-									<div class="price">0</div>
-									<div class="capitalization"></div>
-								</div>
-
-								<div class="coin_box_row" id="xrp_box">
-									<div class="rank">7</div>
-									<div class="coin_logo">
-										<img src="./img/coins/xrp.png" alt="coin logo" loading="lazy">
-									</div>
-									<div class="short_name">XRP</div>
-									<div class="price">0</div>
-									<div class="capitalization"></div>
-								</div>
-
-								<div class="coin_box_row" id="dot_box">
-									<div class="rank">8</div>
-									<div class="coin_logo">
-										<img src="./img/coins/dot.png" alt="coin logo" loading="lazy">
-									</div>
-									<div class="short_name">DOT</div>
-									<div class="price">0</div>
-									<div class="capitalization"></div>
-								</div>
-
-								<div class="coin_box_row" id="doge_box">
-									<div class="rank">9</div>
-									<div class="coin_logo">
-										<img src="./img/coins/DOGE.png" alt="coin logo" loading="lazy">
-									</div>
-									<div class="short_name">DOGE</div>
-									<div class="price">0</div>
-									<div class="capitalization"></div>
-								</div>
-
-								<div class="coin_box_row" id="shib_box">
-									<div class="rank">10</div>
-									<div class="coin_logo">
-										<img src="./img/coins/shib.png" alt="coin logo" loading="lazy">
-									</div>
-									<div class="short_name">SHIB</div>
-									<div class="price">0</div>
-									<div class="capitalization"></div>
-								</div>
-
-								<!-- <div style="height: 500px">
-									<iframe id="tradingview_45b8a" src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_45b8a&amp;symbol=SHIBUSDT&amp;interval=D&amp;hidesidetoolbar=0&amp;symboledit=1&amp;saveimage=1&amp;toolbarbg=F1F3F6&amp;studies=%5B%5D&amp;hideideas=1&amp;theme=Dark&amp;style=1&amp;timezone=Etc%2FUTC&amp;studies_overrides=%7B%7D&amp;overrides=%7B%7D&amp;enabled_features=%5B%5D&amp;disabled_features=%5B%5D&amp;locale=en&amp;utm_source=coinmarketcap.com&amp;utm_medium=widget&amp;utm_campaign=chart&amp;utm_term=SHIBUSDT" style="width: 100%; height: 100%; margin: 0 !important; padding: 0 !important;" frameborder="0" allowtransparency="true" scrolling="no" allowfullscreen=""></iframe>
-								</div> -->
-
-							</div>
-						</div>
-						<div class="col-2 livvic">
-							<h6>If you want see more - just click this button</h6>
-							<button class="btn btn-primary black">Show all coins</button>
-							
-						</div>
+			</div>
+		</div>	
+	</header>
+	<section>
+		<div class="wrapper">
+			<div class="container">
+				<div class="row align-items-center">
+					<div class="col">
+						<h1 class="algerian">Traiding Bot</h1>
+						<div class="arrow"></div>
+						<div class="description"></div>
 					</div>
+
+					<div class="col">
+						<h1 class="algerian">Circulation Supply</h1>
+						<div class="arrow"></div>
+						<div class="description"></div>
+					</div>
+
+					<div class="col">
+						<h1 class="algerian">Personal Portfolio</h1>
+						<div class="arrow"></div>
+						<div class="description"></div>
+					</div>
+
 				</div>
-			</div>	
-		</section>
+			</div>
+		</div>	
+	</section>
 
-		<footer>
-			
-		</footer>
 
 	
-	
-	
+
+	<!-- <div class="wrap"><div class="inner">Some Dummy Text <br>Some Dummy Text <br>Some Dummy Text <br>Some Dummy Text <br></div></div> -->
 
 	<script>
-		window.onload = ()=>{
+		
+		
 
-			let array = [0.646046];
-			let newArr = [0.689104,0.755614,0.929379, 1.4, 1.35,1.27,1.35,1.28,1.3];
-			const userPriceStart = document.querySelector('input');
-			const cryptoCoins = ['btc','eth','bnb','usdt','ada','sol','xrp','dot','doge','shib'];
-			const COMPARE_WITH_COIN = 'usd';
-
-			counter = 0;
-			setInterval(()=>{
-				array.push(newArr[counter]);
-				//console.log(array);
-				let lastPriceValue = newArr[counter];
-				checker(lastPriceValue);
-				
-				getPrice();
-
-				counter++;
-			},5000);
-
-			function checker(lastPrice){
-				let percentageSell = 25;
-				let percentageBuy = 10;
-
-				console.log();
-
-				//let topPriceToSell = userPriceStart.value + (userPriceStart.value/100) * percentageSell;
-				let topPriceToSell = +userPriceStart.value + (+userPriceStart.value/100) * percentageSell;
-				console.log(topPriceToSell);
-				let topPriceToBuy = +userPriceStart.value - (+userPriceStart.value/100) * percentageBuy;
-				console.log(topPriceToBuy);
-
-				setNew_BuySell(topPriceToSell, topPriceToBuy, lastPrice);
-			}
-
-
-			function setNew_BuySell(getSellPrice, getBuyPrice, getLastPrice){
-				if(getLastPrice > getSellPrice){
-
-					console.log('sell 1');
-				}
-				else if(getLastPrice < getBuyPrice){
-					console.log('Buy, come on 2');
-				}
-				else{
-					if(getLastPrice){console.log('Oh, keep calm, рухаэмося в боковику');}
-					else{console.log(getLastPrice + 'Зробив помилку');}
-				}
-			}
-
-			function getCurrentDate(){
-				let d = new Date(); // for now
-				let date = d.getFullYear()+'-'+(d.getMonth()+1)+'-'+d.getDate();
-				return date;
-			}
-
-			function getCurrentTime(){
-				let d = new Date(); // for now
-			
-				d.getHours(); // => 9
-				let min = d.getMinutes(); // =>  30
-				if(d.getMinutes() < 10){min = '0' + d.getMinutes()}
-				let sec = d.getSeconds(); // => 51
-				if(d.getSeconds() < 10){sec = '0' + d.getSeconds();}
-
-				let time = d.getHours() + ':' + min + ':' + sec;
-				return time;
-			};
-
-			function roundPrice(inputPrice){
-				let price = 0;
-				//console.log(typeof +inputPrice);
-				if(inputPrice > 1000){
-					price = (+inputPrice).toFixed();
-				}
-				else if(inputPrice > 100){
-					price = (+inputPrice).toFixed(1);
-				}
-				else if(inputPrice > 10){
-					price = (+inputPrice).toFixed(2);
-				}
-				else if(inputPrice > 0.1){
-					price = (+inputPrice).toFixed(3);
-				}
-				else if(inputPrice > 0.001){
-					price = (+inputPrice).toFixed(6);
-				}
-				else{
-					price = (+inputPrice).toFixed(8);
-				}
-
-				return price;
-			}
-
-			function printPrice(coin, unpreparedPrice){
-				let time = getCurrentTime(),
-					date = getCurrentDate();
-				document.querySelector('#data_time').innerHTML = `Оновлено <span style="color: #B25F87">${date}</span> о <span style="color: #B25F87">${time}</span>`;
-				//console.log(time);
-
-				let price = roundPrice(unpreparedPrice);
-
-/*
-				let block = document.createElement('div');
-				block.className = 'table_price';
-				block.innerHTML = `<div class="price">${price}</div>`;
-*/
-				if(true){
-					let targ = document.querySelector(`#${coin}_box .price`);
-					//console.log(targ);
-					targ.textContent = price;
-				}
-			}
-
-			function makeComma(number){
-				let answer;
-
-				let str = number.toString();
-				console.log("Original data: ",str);
-				str = str.slice(0, -3);
-				str = parseInt(str);
-				console.log("After truncate: ",str);
-
-				return str;
-			}
-
-			function printCapitalization(coin, unprepCapitalization){
-				let cap = makeComma(unprepCapitalization);
-
-				let targ = document.querySelector(`#${coin}_box .capitalization`);
-				//console.log(targ);
-				targ.textContent = cap;
-
-			}
-
-			//https://www.binance.com/api/v3/ticker/price?symbol=ZILUSDT
-			function getPrice(){
-
-				fetch('https://api.coingecko.com/api/v3/coins/')
-					.then(response => response.json())
-					.then((data) => {
-						//console.log(data);
-						//цикл для перебору всіх символів що прийшли від сервера
-						data.forEach(item => {
-							let string = item.symbol;
-							//console.log(string);
-							//цикл для того щоб ми могли порівняти потрібні нам символи з тими що прийшли від сервера
-							cryptoCoins.forEach(i => {
-								let strLength = string.length;
-								let isCoinParaExist = string.includes(i);
-								//console.log(isCoinParaExist);
-
-								if(isCoinParaExist && strLength === i.length){
-									const ParaPrice = item.market_data.current_price.usd;
-									const Capitalization = item.market_data.market_cap.usd //←←← capitalization
-
-									console.log(Capitalization);
-
-									printPrice(i, ParaPrice);
-									printCapitalization(i, Capitalization);
-
-								}
-								else{
-									//console.log('Увага, дану пару не знайдено, будь-ласка виберіть щось інше');
-								}
-								
-							});
-
-
-						});
-						//console.log(price);
-						
-					});
-			};
-			
-			getPrice();
-			
-			//↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-			//↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-			//↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-
-
-		}
 	</script>
 </body>
 </html>
