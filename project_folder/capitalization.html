@@ -86,9 +86,13 @@
 							<div class="price">Price ($)</div>
 							<div class="capitalization">Capitalization ($)</div>
 						</div>
-						<div class="content_box">
+						<div class="content_box" id="content_box">
 							
-							<div class="coin_box_row" id="btc_box">
+					<!-- 		<div class="coin_box_row" id="btc_box">
+								<div class="watchlist_star">
+									<i class="fas fa-star"></i>
+									<i class="far fa-star"></i>
+								</div>
 								<div class="rank">1</div>
 								<div class="coin_logo">
 									<img src="./img/coins/btc.png" alt="coin logo" loading="lazy">
@@ -96,9 +100,9 @@
 								<div class="short_name">BTC</div>
 								<div class="price">0</div>
 								<div class="capitalization"></div>
-							</div>
+							</div> -->
 							
-							<div class="coin_box_row" id="eth_box">
+							<!-- <div class="coin_box_row" id="eth_box">
 								<div class="rank">2</div>
 								<div class="coin_logo">
 									<img src="./img/coins/eth.png" alt="coin logo" loading="lazy">
@@ -186,7 +190,8 @@
 								<div class="short_name">SHIB</div>
 								<div class="price">0</div>
 								<div class="capitalization"></div>
-							</div>
+							</div> -->
+
 
 							<!-- <div style="height: 500px">
 								<iframe id="tradingview_45b8a" src="https://s.tradingview.com/widgetembed/?frameElementId=tradingview_45b8a&amp;symbol=SHIBUSDT&amp;interval=D&amp;hidesidetoolbar=0&amp;symboledit=1&amp;saveimage=1&amp;toolbarbg=F1F3F6&amp;studies=%5B%5D&amp;hideideas=1&amp;theme=Dark&amp;style=1&amp;timezone=Etc%2FUTC&amp;studies_overrides=%7B%7D&amp;overrides=%7B%7D&amp;enabled_features=%5B%5D&amp;disabled_features=%5B%5D&amp;locale=en&amp;utm_source=coinmarketcap.com&amp;utm_medium=widget&amp;utm_campaign=chart&amp;utm_term=SHIBUSDT" style="width: 100%; height: 100%; margin: 0 !important; padding: 0 !important;" frameborder="0" allowtransparency="true" scrolling="no" allowfullscreen=""></iframe>
@@ -214,57 +219,10 @@
 	<script>
 		window.onload = () => {
 
-			let array = [0.646046];
-			let newArr = [0.689104,0.755614,0.929379, 1.4, 1.35,1.27,1.35,1.28,1.3];
-			const userPriceStart = document.querySelector('input');
-			const cryptoCoins = ['btc','eth','bnb','usdt','ada','sol','xrp','dot','doge','shib'];
+			let howManyCoinsShow = 10;
+			const cryptoCoins = ['eth','bnb','usdt','ada','sol','xrp','dot','doge','shib','btc'];
 			const COMPARE_WITH_COIN = 'usd';
 
-			counter = 0;
-			setInterval(()=>{
-				array.push(newArr[counter]);
-				//console.log(array);
-				let lastPriceValue = newArr[counter];
-				checker(lastPriceValue);
-				
-				getPrice();
-
-				counter++;
-			},5000);
-
-			function checker(lastPrice){
-				let percentageSell = 25;
-				let percentageBuy = 10;
-
-				//console.log();
-
-				//let topPriceToSell = userPriceStart.value + (userPriceStart.value/100) * percentageSell;
-				let topPriceToSell = +userPriceStart.value + (+userPriceStart.value/100) * percentageSell;
-				//console.log(topPriceToSell);
-				let topPriceToBuy = +userPriceStart.value - (+userPriceStart.value/100) * percentageBuy;
-				//console.log(topPriceToBuy);
-
-				setNew_BuySell(topPriceToSell, topPriceToBuy, lastPrice);
-			}
-
-
-			function setNew_BuySell(getSellPrice, getBuyPrice, getLastPrice){
-				if(getLastPrice > getSellPrice){
-
-					//console.log('sell 1');
-				}
-				else if(getLastPrice < getBuyPrice){
-					//console.log('Buy, come on 2');
-				}
-				else{
-					if(getLastPrice){
-						//console.log('Oh, keep calm, рухаэмося в боковику');
-					}
-					else{
-						//console.log(getLastPrice + 'Зробив помилку');
-					}
-				}
-			}
 
 			function getCurrentDate(){
 				let d = new Date(); // for now
@@ -310,6 +268,13 @@
 				return price;
 			}
 
+			function printIcons(coin, imgUrl){
+
+				let targ = document.querySelector(`#${coin}_box img`);
+				targ.src = imgUrl;
+
+			}
+
 			function printPrice(coin, unpreparedPrice){
 				let time = getCurrentTime(),
 					date = getCurrentDate();
@@ -348,6 +313,63 @@
 				targ.textContent = cap;
 
 			}
+			let coins = 0;
+			function makeCoinLists(item){
+//сложная деструктуризация, смотри https://learn.javascript.ru/destructuring-assignment#vlozhennaya-destrukturizatsiya
+				let {
+					symbol,
+					image:{
+						thumb,
+					},
+					market_data:{
+						circulating_supply,
+						current_price:{
+							usd
+						},
+						high_24h:{
+						
+						},
+						low_24h:{
+					
+						},
+						market_cap:{
+		
+						},
+						market_cap_change_24h:{
+
+						},
+					},
+
+					} = item;
+
+
+console.log(item);
+console.log(symbol);
+// console.log(high_24h);
+console.log(usd);
+console.log(thumb);
+				const tag = document.createElement('div');
+				tag.classList.add('coin_box_row');
+				tag.id = 'btc_box';
+
+				let html = `
+								<div class="watchlist_star">
+									<i class="fas fa-star"></i>
+									<i class="far fa-star"></i>
+								</div>
+								<div class="rank">1</div>
+								<div class="coin_logo">
+									<img src="${thumb}" alt="coin logo" loading="lazy">
+								</div>
+								<div class="short_name">${symbol}</div>
+								<div class="price">${usd}</div>
+								<div class="capitalization"></div>
+						`;
+				tag.innerHTML = html;
+				let targ = document.querySelector(`#content_box`);
+				targ.append(tag);
+
+			}
 
 			//https://www.binance.com/api/v3/ticker/price?symbol=ZILUSDT
 			function getPrice(){
@@ -359,7 +381,7 @@
 						//цикл для перебору всіх символів що прийшли від сервера
 						data.forEach(item => {
 							let string = item.symbol;
-							//console.log(string);
+							// console.log(string);
 							//цикл для того щоб ми могли порівняти потрібні нам символи з тими що прийшли від сервера
 							cryptoCoins.forEach(i => {
 								let strLength = string.length;
@@ -368,12 +390,15 @@
 
 								if(isCoinParaExist && strLength === i.length){
 									const ParaPrice = item.market_data.current_price.usd;
-									const Capitalization = item.market_data.market_cap.usd //←←← capitalization
+									const Capitalization = item.market_data.market_cap.usd; //←←← capitalization
+									const UrlIcon = item.image.thumb;
+									//console.log(UrlIcon);
 
-									//console.log(Capitalization);
+									// printPrice(i, ParaPrice);
+									// printCapitalization(i, Capitalization);
+									// printIcons(i, UrlIcon);
 
-									printPrice(i, ParaPrice);
-									printCapitalization(i, Capitalization);
+									makeCoinLists(item);
 
 								}
 								else{
@@ -390,11 +415,6 @@
 			};
 			
 			getPrice();
-			
-			//↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-			//↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-			//↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓
-
 
 		}
 	</script>
